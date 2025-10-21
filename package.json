@@ -7,7 +7,7 @@
     "react-dom": "^18.3.1"
   },
   "scripts": {
-    "start": "webpack serve --mode development",
+    "start": "webpack serve --mode development --open",
     "build": "webpack --mode production",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
