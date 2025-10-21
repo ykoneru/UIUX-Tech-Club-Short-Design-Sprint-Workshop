@@ -1,11 +1,20 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-import './App.css';
+import { createRoot } from 'react-dom/client';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+const App = () => (
+  <div style={{ fontFamily: 'system-ui, sans-serif', textAlign: 'center', marginTop: '20vh' }}>
+    <h1>Hello World</h1>
+  </div>
 );
+
+// ensure there's a #root element (works if public/index.html has it; otherwise create one)
+const rootElement =
+  document.getElementById('root') ||
+  (() => {
+    const el = document.createElement('div');
+    el.id = 'root';
+    document.body.appendChild(el);
+    return el;
+  })();
+
+createRoot(rootElement).render(<App />);
